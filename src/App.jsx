@@ -1,10 +1,13 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React from "react";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import store from "./store";
 import Homepage from "./pages/HomePage";
 import UploadPage from "./pages/UploadPage";
 import DetailPage from "./pages/DetailPage";
 
-function App() {
-  return (
+const App = () => (
+  <Provider store={store}>
     <Router>
       <Routes>
         <Route path="/" element={<Homepage />} />
@@ -12,6 +15,7 @@ function App() {
         <Route path="/detail" element={<DetailPage />} />
       </Routes>
     </Router>
-  );
-}
+  </Provider>
+);
+
 export default App;
