@@ -1,15 +1,18 @@
 import React from "react";
-import Logo from "./Texxlog.png";
+import Logo from "./Texxlog 2.png";
 
 const Header = () => (
-  <header className="p-6 bg-white text-slate-900 flex justify-between items-center">
-    <img src={Logo} alt="Texxlog logo" className="h-24"></img>
+  <header className="p-5 bg-white text-blue 950 flex justify-between items-center">
+    <img src={Logo} alt="Texxlog logo" className="h-10"></img>
     <nav className="space-x-4">
       <a href="/" className="hover:underline">
         Home
       </a>
-      <a href="/texture" className="hover:underline">
-        Texture
+      <a href="/search" className="hover:underline">
+        Search
+      </a>
+      <a href="/upload" className="hover:underline">
+        Upload
       </a>
     </nav>
   </header>

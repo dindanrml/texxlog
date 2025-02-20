@@ -7,7 +7,7 @@ const TextureCard = ({ texture }) => (
       className="w-full h-40 object-cover"
     />
     {/* <img
-      src="https://texturelabs.org/wp-content/uploads/Texturelabs_Wood_260S.jpg"
+      src="https://www.freepik.com/free-photo/white-paper-texture_1012237.htm#fromView=search&page=1&position=0&uuid=a98913bb-1f14-47a2-84e0-a25499dc30c8&query=texture"
       className="w-full h-40 object-cover"
     /> */}
     <div className="p-2">

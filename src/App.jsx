@@ -5,6 +5,8 @@ import store from "./store";
 import Homepage from "./pages/HomePage";
 import UploadPage from "./pages/UploadPage";
 import DetailPage from "./pages/DetailPage";
+import SearchPage from "./pages/SearchPage";
+// import "@fontsource/inter.css";
 
 const App = () => (
   <Provider store={store}>
@@ -13,6 +15,7 @@ const App = () => (
         <Route path="/" element={<Homepage />} />
         <Route path="/upload" element={<UploadPage />} />
         <Route path="/detail" element={<DetailPage />} />
+        <Route path="/search" element={<SearchPage />} />
       </Routes>
     </Router>
   </Provider>
