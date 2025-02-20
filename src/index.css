@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+
+
+/* @layer base {
   @font-face {
     font-family: 'Bogue';
     font-style: Light;
@@ -10,7 +12,18 @@
     font-display: swap;
     src: url(/fonts/Bogue.ttf) format('.ttf');
   }
+} */
+
+@layer base {
+  @font-face {
+    font-family: 'Century Schoolbook L';
+    font-style: Roma;
+    font-weight: 0;
+    font-display: swap;
+    src: url(/fonts/CenturySchoolbookL.ttf) format('.ttf');
+  }
 }
+
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

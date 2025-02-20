@@ -62,34 +62,89 @@
 // };
 // export default UploadPage;
 
+// import React, { useState, useCallback } from "react";
+// import { useDropzone } from "react-dropzone";
+// import Header from "../components/header";
+// import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+// import { getFirestore, collection, addDoc } from "firebase/firestore";
+// import { app } from "../firebase";
+
+// const UploadPage = () => {
+//   const [files, setFiles] = useState([]);
+//   const [image, setImage] = useState("");
+//   const [description, setDescription] = useState("");
+//   const [creator, setCreator] = useState("");
+//   const [category, setCategory] = useState("");
+//   const [file, setFile] = useState(null);
+//   const [preview, setPreview] = useState(null);
+//   const [uploading, setUploading] = useState(false);
+//   const [message, setMessage] = useState("");
+
+//   const storage = getStorage(app);
+//   const db = getFirestore(app);
+
+//   const onDrop = useCallback((acceptedFiles) => {
+//     const uploadedFile = acceptedFiles[0];
+//     setFile(uploadedFile);
+//     setPreview(URL.createObjectURL(uploadedFile));
+//   }, []);
+
+//   const { getRootProps, getInputProps, isDragActive } = useDropzone({
+//     accept: "image/*",
+//     onDrop: (acceptedFiles) => {
+//       setFiles(
+//         acceptedFiles.map((file) =>
+//           Object.assign(file, {
+//             preview: URL.createObjectURL(file),
+//           })
+//         )
+//       );
+//     },
+//   });
+
+//   const handleUpload = async (e) => {
+//     e.preventDefault();
+//     if (!file) {
+//       setMessage("Please select an image to upload");
+//       return;
+//     }
+//     setUploading(true);
+
+//     const storageRef = ref(storage, `textures/${file.name}`);
+//     await uploadBytes(storageRef, file).then(async (snapshot) => {
+//       const downloadURL = await getDownloadURL(snapshot.ref);
+//       setImage(downloadURL);
+//       setUploading(false);
+//     });
+
+//     const docRef = await addDoc(collection(db, "textures"), {
+//       image,
+//       description,
+//       creator,
+//       category,
+//       star: 0,
+//     });
+//     console.log(docRef.id);
+//   };
+
 import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
+import {
+  db,
+  storage,
+  collection,
+  addDoc,
+  ref,
+  uploadBytes,
+  getDownloadURL,
+} from "../firebase";
 import Header from "../components/header";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
-import { app } from "../firebase";
 
 const UploadPage = () => {
   const [files, setFiles] = useState([]);
-  const [image, setImage] = useState("");
-  const [description, setDescription] = useState("");
-  const [creator, setCreator] = useState("");
-  const [category, setCategory] = useState("");
-  const [file, setFile] = useState(null);
-  const [preview, setPreview] = useState(null);
   const [uploading, setUploading] = useState(false);
-  const [message, setMessage] = useState("");
 
-  const storage = getStorage(app);
-  const db = getFirestore(app);
-
-  const onDrop = useCallback((acceptedFiles) => {
-    const uploadedFile = acceptedFiles[0];
-    setFile(uploadedFile);
-    setPreview(URL.createObjectURL(uploadedFile));
-  }, []);
-
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+  const { getRootProps, getInputProps } = useDropzone({
     accept: "image/*",
     onDrop: (acceptedFiles) => {
       setFiles(
@@ -102,43 +157,43 @@ const UploadPage = () => {
     },
   });
 
-  const handleUpload = async (e) => {
-    e.preventDefault();
-    if (!file) {
-      setMessage("Please select an image to upload");
-      return;
-    }
+  const handleUpload = async () => {
     setUploading(true);
+    try {
+      for (const file of files) {
+        const storageRef = ref(storage, `textures/${file.name}`);
+        await uploadBytes(storageRef, file);
+        const url = await getDownloadURL(storageRef);
 
-    const storageRef = ref(storage, `textures/${file.name}`);
-    await uploadBytes(storageRef, file).then(async (snapshot) => {
-      const downloadURL = await getDownloadURL(snapshot.ref);
-      setImage(downloadURL);
-      setUploading(false);
-    });
-
-    const docRef = await addDoc(collection(db, "textures"), {
-      image,
-      description,
-      creator,
-      category,
-      star: 0,
-    });
-    console.log(docRef.id);
+        await addDoc(collection(db, "textures"), {
+          name: file.name,
+          image: url,
+          category: "Uncategorized",
+          description: "No description provided.",
+        });
+      }
+      setFiles([]);
+      alert("Upload successful!");
+    } catch (error) {
+      console.error("Error uploading files: ", error);
+      alert("Upload failed.");
+    }
+    setUploading(false);
+    console.log("Upload complete");
   };
 
   return (
     <div className="min-h-screen bg-gray-100">
       <Header />
-      <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-3xl space-y-10 border border-solid border-blue-950">
+      <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-3xl space-y-10 border border-solid border-blue-950 font-display">
         <h1 className="text-3xl font-bold text mb-4">Upload Texture</h1>
-        <form onSubmit={handleUpload}>
+        <form onChange={handleUpload}>
           <div
-            {...getRootProps(image)}
+            {...getRootProps()}
             className="border-2 border-slate-800 border-dashed p-10 text-center cursor-pointer bg-gray-50 space-y-4 mb-4"
             onChange={(e) => setImage(e.target.value)}
           >
-            <input {...getInputProps(image)} />
+            <input {...getInputProps()} />
             <p className="text-gray-500">
               Drag & drop your files here, or click to select
             </p>

@@ -44,7 +44,7 @@ const SearchPage = () => {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <div className="max-w-5xl mx-auto p-6 text-center">
+      <div className="max-w-5xl mx-auto p-6 text-center font-display">
         <h1 className="text-3xl font-bold mb-4">Search Textures</h1>
         <div className="flex items-center justify-center mb-4">
           <input

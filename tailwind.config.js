@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        display: ['Bogue', 'Helvetica', 'sans-serif'],
+        display: ['Century Schoolbook L', 'Helvetica', 'sans-serif'],
     },
   }
   },
