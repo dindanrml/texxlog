@@ -185,55 +185,59 @@ const UploadPage = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       <Header />
-      <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-3xl space-y-10 border border-solid border-blue-950 font-display">
-        <h1 className="text-3xl font-bold text mb-4">Upload Texture</h1>
-        <form onChange={handleUpload}>
-          <div
-            {...getRootProps()}
-            className="border-2 border-slate-800 border-dashed p-10 text-center cursor-pointer bg-gray-50 space-y-4 mb-4"
-            onChange={(e) => setImage(e.target.value)}
-          >
-            <input {...getInputProps()} />
-            <p className="text-gray-500">
-              Drag & drop your files here, or click to select
-            </p>
-          </div>
-          {files.map((file) => (
-            <img
-              key={file.name}
-              src={file.preview}
-              alt={file.name}
-              className="w-full h-auto object-cover rounded-lg shadow space-y-4"
-            />
-          ))}
-          <input
-            type="text"
-            placeholder="Image URL"
-            className="block w-full p-2 border border-blue-950 rounded-full space-x-4 mb-4 "
-            onChange={(e) => setImage(e.target.value)}
-          ></input>
-          <input
-            type="text"
-            placeholder="Description"
-            className="block w-full p-2 border border-blue-950 rounded-full space-x-4 mb-4 "
-            onChange={(e) => setDescription(e.target.value)}
-          ></input>
-          <input
-            type="text"
-            placeholder="Creator"
-            className="block w-full p-2 border border-blue-950 rounded-full mb-4"
-            onChange={(e) => setCreator(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Category"
-            className="block w-full p-2 border border-blue-950 rounded-full mb-4"
-            onChange={(e) => setCategory(e.target.value)}
-          />
-          <button className="w-full p-2 bg-blue-950 text-white rounded-full hover:bg-blue-900">
-            Upload
-          </button>
-        </form>
+      <div className="max-w-5xl mx-auto p-6 text-center font-display">
+        <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-3xl border border-solid border-blue-950 font-display pt-100">
+          <h1 className="text-3xl font text mb-4">Upload Texture</h1>
+          <form onChange={handleUpload}>
+            <div
+              {...getRootProps()}
+              className="border-2 border-slate-800 border-dashed p-10 text-center cursor-pointer bg-gray-50 space-y-4 mb-4"
+              onChange={(e) => setImage(e.target.value)}
+            >
+              <input {...getInputProps()} />
+              <p className="text-gray-500">
+                Drag & drop your files here, or click to select
+              </p>
+            </div>
+            {files.map((file) => (
+              <img
+                key={file.name}
+                src={file.preview}
+                alt={file.name}
+                className="w-full h-auto object-cover rounded-lg shadow space-y-4"
+              />
+            ))}
+            <div className="pt-10">
+              <input
+                type="text"
+                placeholder="Image URL"
+                className="block w-full p-2 border border-blue-950 rounded-full space-y-4 mb-4 "
+                onChange={(e) => setImage(e.target.value)}
+              ></input>
+              <input
+                type="text"
+                placeholder="Description"
+                className="block w-full p-2 border border-blue-950 rounded-full space-x-4 mb-4 "
+                onChange={(e) => setDescription(e.target.value)}
+              ></input>
+              <input
+                type="text"
+                placeholder="Creator"
+                className="block w-full p-2 border border-blue-950 rounded-full mb-4"
+                onChange={(e) => setCreator(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="Category"
+                className="block w-full p-2 border border-blue-950 rounded-full mb-4"
+                onChange={(e) => setCategory(e.target.value)}
+              />
+              <button className="w-full p-2 bg-blue-950 text-white rounded-full hover:bg-blue-900">
+                Upload
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

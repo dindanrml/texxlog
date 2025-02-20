@@ -54,7 +54,7 @@ const SearchPage = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <button className="p-3 bg-blue-950 text-white rounded-3xl hover:bg-blue-900">
+          <button className="p-3 bg-blue-950 text-white rounded-3xl space-x-4 hover:bg-blue-900">
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </button>
         </div>
@@ -75,6 +75,16 @@ const SearchPage = () => {
           {filteredTextures.map((texture) => (
             <TextureCard key={texture.id} texture={texture} />
           ))}
+        </div>
+
+        <div className="grid grid-cols-3 gap-4 mt-6">
+          {status === "loading" ? (
+            <p>Loading...</p>
+          ) : (
+            textures.map((texture) => (
+              <TextureCard key={texture.id} texture={texture} />
+            ))
+          )}
         </div>
       </div>
     </div>
