@@ -1,6 +1,6 @@
 import React from "react";
 const TextureCard = ({ texture }) => (
-  <div className="border rounded-lg shadow-lg overflow-hidden">
+  <div className="border border-solid border-blue-950 rounded-lg shadow-lg overflow-hidden space-y-10 ">
     <img
       src={texture.image}
       alt={texture.description}

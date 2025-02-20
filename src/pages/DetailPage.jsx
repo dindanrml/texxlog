@@ -14,7 +14,7 @@ const DetailPage = () => {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <div className="max-w-4xl mx-auto p-6">
+      <div className="max-w-4xl mx-auto p-6 font-display">
         <h1 className="text-3xl font-bold mb-4">{texture.name}</h1>
         <img
           src={texture.image}

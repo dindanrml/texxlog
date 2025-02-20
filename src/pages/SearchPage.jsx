@@ -54,7 +54,7 @@ const SearchPage = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <button className="p-3 bg-blue-950 text-white rounded-full">
+          <button className="p-3 bg-blue-950 text-white rounded-3xl hover:bg-blue-900">
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </button>
         </div>

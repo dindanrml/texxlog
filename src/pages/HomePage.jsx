@@ -14,13 +14,13 @@ const Homepage = () => {
   }, [dispatch]);
 
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className="min-h-screen bg-white">
       <Header />
-      <div className="max-w-5xl mx-auto p-6 text-center">
+      <div className="max-w-5xl mx-auto p-6 text-center font-display">
         <div className="flex gap-4 justify-center mb-6">
-          <main class="text-center">
-            <h2 class="text-3xl font-bold mb-8">
-              Explore Stunning Textures &amp; Artwork from Leading Creators
+          <main className="text-center">
+            <h2 className="text-3xl font-bold font-color mb-8">
+              Explore Stunning Textures from Leading Creators
             </h2>
             <div className="grid grid-cols-3 gap-4 mt-6">
               {status === "loading" ? (

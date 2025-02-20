@@ -6,7 +6,7 @@ import Homepage from "./pages/HomePage";
 import UploadPage from "./pages/UploadPage";
 import DetailPage from "./pages/DetailPage";
 import SearchPage from "./pages/SearchPage";
-// import "@fontsource/inter.css";
+import "./index.css";
 
 const App = () => (
   <Provider store={store}>
