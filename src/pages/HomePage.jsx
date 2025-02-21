@@ -23,7 +23,7 @@ const Homepage = () => {
             <h2 className="text-3xl font font-color mb-8 mt-20">
               Explore Stunning Textures from Leading Creators
             </h2>
-            <div className="grid grid-cols-3 gap-4 mt-40">
+            <div className="grid grid-cols-4 gap-4 mt-40">
               {status === "loading" ? (
                 <p>Loading...</p>
               ) : (
