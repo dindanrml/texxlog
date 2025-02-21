@@ -364,44 +364,46 @@ const UploadPage = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       <Header />
-      <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-3xl border border-solid border-blue-950">
-        <h1 className="text-3xl font-bold mb-4">Upload Texture</h1>
-        <form onSubmit={handleUpload}>
-          <input
-            type="file"
-            accept="image/*"
-            className="block w-full p-2 border border-blue-950 rounded-full mb-4"
-            onChange={handleImageChange}
-          />
-          <input
-            type="text"
-            placeholder="Description"
-            className="block w-full p-2 border border-blue-950 rounded-full mb-4"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Creator"
-            className="block w-full p-2 border border-blue-950 rounded-full mb-4"
-            value={creator}
-            onChange={(e) => setCreator(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Category"
-            className="block w-full p-2 border border-blue-950 rounded-full mb-4"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          />
-          <button
-            type="submit"
-            className="w-full p-2 bg-blue-950 text-white rounded-full hover:bg-blue-900 disabled:opacity-50"
-            disabled={uploading}
-          >
-            {uploading ? "Uploading..." : "Upload"}
-          </button>
-        </form>
+      <div className="max-w-5xl mx-auto p-6 text-center font-display">
+        <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-3xl border border-solid border-blue-950">
+          <h1 className="text-3xl font-bold mb-4">Upload Texture</h1>
+          <form onSubmit={handleUpload}>
+            <input
+              type="file"
+              accept="image/*"
+              className="block w-full p-2 border border-blue-950 rounded-full mb-4"
+              onChange={handleImageChange}
+            />
+            <input
+              type="text"
+              placeholder="Description"
+              className="block w-full p-2 border border-blue-950 rounded-full mb-4"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Creator"
+              className="block w-full p-2 border border-blue-950 rounded-full mb-4"
+              value={creator}
+              onChange={(e) => setCreator(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Category"
+              className="block w-full p-2 border border-blue-950 rounded-full mb-4"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            />
+            <button
+              type="submit"
+              className="w-full p-2 bg-blue-950 text-white rounded-full hover:bg-blue-900 disabled:opacity-50"
+              disabled={uploading}
+            >
+              {uploading ? "Uploading..." : "Upload"}
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
