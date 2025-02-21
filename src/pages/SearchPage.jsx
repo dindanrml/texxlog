@@ -50,11 +50,11 @@ const SearchPage = () => {
           <input
             type="text"
             placeholder="Search..."
-            className="w-full p-2 border border-blue-950 rounded-full"
+            className="w-full p-2 border border-blue-950 rounded-xl"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <button className="p-3 bg-blue-950 text-white rounded-3xl space-x-4 hover:bg-blue-900">
+          <button className="p-3 bg-blue-950 text-white rounded-xl hover:bg-blue-900 ml-2">
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </button>
         </div>
