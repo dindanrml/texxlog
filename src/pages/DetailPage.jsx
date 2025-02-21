@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Header from "../components/header";
+import Header from "../components/HeaderComponent";
 
 const DetailPage = () => {
   const { id } = useParams();

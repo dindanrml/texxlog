@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Header from "../components/header";
+import Header from "../components/HeaderComponent";
 import TextureCard from "../components/TextureCards";
 import { fetchTextures } from "../features/textureSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import Footer from "../components/Footer";
+import Footer from "../components/FooterComponent";
 
 const SearchPage = () => {
   const dispatch = useDispatch();

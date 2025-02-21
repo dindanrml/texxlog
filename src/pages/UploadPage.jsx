@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { db, collection, addDoc } from "../firebase";
-import Header from "../components/header";
-import Footer from "../components/Footer";
+import Header from "../components/HeaderComponent";
+import Footer from "../components/FooterComponent";
 import Swal from "sweetalert2";
 
 const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/de94dujde/image/upload";

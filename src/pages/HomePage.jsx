@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTextures } from "../features/textureSlice";
-import Header from "../components/header";
+import Header from "../components/HeaderComponent";
 import TextureCard from "../components/TextureCards";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Footer from "../components/Footer";
+import Footer from "../components/FooterComponent";
 
 const Homepage = () => {
   const dispatch = useDispatch();
