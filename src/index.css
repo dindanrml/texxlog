@@ -17,10 +17,10 @@
 @layer base {
   @font-face {
     font-family: 'Century Schoolbook L';
-    font-style: Roma;
+    font-style: Regular;
     font-weight: 0;
     font-display: swap;
-    src: url(/fonts/CenturySchoolbookL.ttf) format('.ttf');
+    src: url(/public/fonts/Century\ Schoolbook\ L\ Regular.ttf) format('truetype');
   }
 }
 
