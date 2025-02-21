@@ -299,6 +299,7 @@
 import React, { useState } from "react";
 import { db, collection, addDoc } from "../firebase";
 import Header from "../components/header";
+import Footer from "../components/Footer";
 
 const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/de94dujde/image/upload";
 const UPLOAD_PRESET = "texture-image";
@@ -405,6 +406,7 @@ const UploadPage = () => {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

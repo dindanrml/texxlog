@@ -4,6 +4,7 @@ import { fetchTextures } from "../features/textureSlice";
 import Header from "../components/header";
 import TextureCard from "../components/TextureCards";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Footer from "../components/Footer";
 
 const Homepage = () => {
   const dispatch = useDispatch();
@@ -19,10 +20,10 @@ const Homepage = () => {
       <div className="max-w-5xl mx-auto p-6 text-center font-display">
         <div className="flex gap-4 justify-center mb-6">
           <main className="text-center">
-            <h2 className="text-3xl font font-color mb-8">
+            <h2 className="text-3xl font font-color mb-8 mt-20">
               Explore Stunning Textures from Leading Creators
             </h2>
-            <div className="grid grid-cols-3 gap-4 mt-6">
+            <div className="grid grid-cols-3 gap-4 mt-40">
               {status === "loading" ? (
                 <p>Loading...</p>
               ) : (
@@ -34,6 +35,7 @@ const Homepage = () => {
           </main>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

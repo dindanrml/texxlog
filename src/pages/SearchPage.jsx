@@ -99,6 +99,7 @@ import TextureCard from "../components/TextureCards";
 import { fetchTextures } from "../features/textureSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import Footer from "../components/Footer";
 
 const SearchPage = () => {
   const dispatch = useDispatch();
@@ -188,6 +189,7 @@ const SearchPage = () => {
           )}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
